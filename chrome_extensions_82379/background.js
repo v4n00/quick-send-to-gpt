@@ -1,26 +1,7 @@
-chrome.runtime.onInstalled.addListener(() => {
-	chrome.contextMenus.create({
-		id: 'send',
-		title: ' ',
-		contexts: ['selection'],
-	});
-});
-
-chrome.contextMenus.onClicked.addListener((info, tab) => {
-	if (info.menuItemId === 'send' && info.selectionText) {
-		chrome.scripting.executeScript({
-			target: { tabId: tab.id },
-			func: send,
-			args: [info.selectionText],
-		});
-	}
-});
-
 const send = async (selectedText) => {
-	const url = 'https://api.openai.com/v1/chat/completions';
 	const apiKey = 'YOUR_API_KEY';
 
-	const response = await fetch(url, {
+	const response = await fetch('https://api.openai.com/v1/chat/completions', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -44,6 +25,7 @@ const send = async (selectedText) => {
 	});
 
 	const result = (await response.json()).choices[0].message.content.trim();
+	console.log(result);
 
 	const resultDiv = document.createElement('div');
 	resultDiv.innerText = result;
@@ -75,3 +57,24 @@ const send = async (selectedText) => {
 	resultDiv.appendChild(closeButton);
 	document.body.appendChild(resultDiv);
 };
+
+chrome.action.onClicked.addListener((tab) => {
+	chrome.scripting.executeScript(
+		{
+			target: { tabId: tab.id },
+			func: () => {
+				const selection = window.getSelection().toString().trim();
+				window.getSelection().removeAllRanges();
+				return selection;
+			},
+			args: [],
+		},
+		(result) => {
+			chrome.scripting.executeScript({
+				target: { tabId: tab.id },
+				func: send,
+				args: [result[0].result],
+			});
+		}
+	);
+});

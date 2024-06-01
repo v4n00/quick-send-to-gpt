@@ -1,6 +1,6 @@
-# Highlight to fast ChatGPT
+# Highlight to ChatGPT Quiz
 
-Get multiple choice quiz responses from ChatGPT by selecting text on any webpage and right clicking to prompt ChatGPT.
+Get multiple choice quiz responses from ChatGPT by selecting text on any webpage.
 
 ## Requirements
 
@@ -11,7 +11,7 @@ The computer you are using this on must have installed the following:
 
 ## Setting up
 
-1. Go to `/chrome_extensions_82379/b.js` and replace `YOUR_API_KEY` with your own API key.
+1. Go to `chrome_extensions_82379/background.js` and replace `YOUR_API_KEY` with your own API key.
 2. Archive the folder `chrome_extensions_82379`
 3. Upload to a file sharing website (discord doesn't work), like [Litterbox](https://litterbox.catbox.moe/) (for temporary uploads)
 4. Get the link and inside `run.bat` set the `URL` variable to the link
@@ -21,8 +21,9 @@ The computer you are using this on must have installed the following:
 
 1. Download the run.bat file from the link you uploaded it to, allow the download
 2. Open the run.bat file, allow the file to run
-3. Select anything on any webpage
-4. Right click and select the empty option to prompt
+3. (Optional) Pin the extension to the chrome toolbar
+4. Select anything on any webpage
+5. Click the extension icon
 
 The `run.bat` file will self-destruct after running.  
 The extension only works in the opened chrome window, if you close it, the extension will be gone.

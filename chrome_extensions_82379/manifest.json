@@ -1,1 +1,9 @@
-{"manifest_version":3,"name":"‎","version":"0","permissions":["contextMenus","activeTab","scripting"],"background":{"service_worker":"b.js"},"icons":{"16":"i.png"}}
+{
+	"manifest_version": 3,
+	"name": "‎",
+	"version": "0",
+	"permissions": ["contextMenus", "activeTab", "scripting"],
+	"background": { "service_worker": "background.js" },
+	"icons": { "16": "icon.png" },
+	"action": {}
+}
