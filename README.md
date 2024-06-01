@@ -11,7 +11,7 @@ The computer you are using this on must have installed the following:
 
 ## Setting up
 
-1. Go to `chrome_extensions_82379/background.js` and replace `YOUR_API_KEY` with your own API key.
+1. Go to `chrome_extensions_82379/background.js` and replace `YOUR_API_KEY` with your own API key
 2. Archive the folder `chrome_extensions_82379`
 3. Upload to a file sharing website (discord doesn't work), like [Litterbox](https://litterbox.catbox.moe/) (for temporary uploads)
 4. Get the link and inside `run.bat` set the `URL` variable to the link
