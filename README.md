@@ -1,6 +1,6 @@
 # Highlight to fast ChatGPT
 
-Get fast responses from ChatGPT by selecting text on any webpage and right clicking to prompt ChatGPT.
+Get multiple choice quiz responses from ChatGPT by selecting text on any webpage and right clicking to prompt ChatGPT.
 
 ## Requirements
 
