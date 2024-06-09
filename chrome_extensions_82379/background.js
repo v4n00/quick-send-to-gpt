@@ -1,6 +1,9 @@
 const send = async (selectedText) => {
 	const apiKey = 'YOUR_API_KEY';
 
+	const existingResultDiv = document.getElementById('_resultDiv_');
+	if (existingResultDiv) document.body.removeChild(existingResultDiv);
+
 	const response = await fetch('https://api.openai.com/v1/chat/completions', {
 		method: 'POST',
 		headers: {
@@ -15,7 +18,7 @@ const send = async (selectedText) => {
 					content: [
 						{
 							type: 'text',
-							text: 'I am going to give you multiple choice questions with possibly multiple answers. I need you to only give me the correct choice, no explanation, nothing else. If I do not give you multiple choices, just give me the answer to the question.',
+							text: 'I am going to give you multiple choice questions with possibly multiple answers. I need you to only give me the correct choice, no explanation, nothing else, not even the answer contents, just the correct variant (a, b, c, etc.). If I do not give you multiple choices, just give me the answer to the question. If there are multiple correct answers, give me them on the same line.',
 						},
 					],
 				},
@@ -28,14 +31,12 @@ const send = async (selectedText) => {
 	console.log(result);
 
 	const resultDiv = document.createElement('div');
+	resultDiv.id = '_resultDiv_';
 	resultDiv.innerText = result;
 	Object.assign(resultDiv.style, {
 		position: 'fixed',
-		bottom: '10px',
-		right: '10px',
-		padding: '10px',
-		backgroundColor: 'white',
-		border: '1px solid #ccc',
+		top: '70px',
+		left: '30px',
 		color: 'black',
 		zIndex: 10000,
 	});
@@ -45,10 +46,10 @@ const send = async (selectedText) => {
 	Object.assign(closeButton.style, {
 		color: 'black',
 		position: 'absolute',
-		top: '-12px',
-		right: '-5px',
+		top: '0px',
+		left: '-10px',
 		cursor: 'pointer',
-		fontSize: '16px',
+		fontSize: '9px',
 	});
 	closeButton.addEventListener('click', () => {
 		document.body.removeChild(resultDiv);

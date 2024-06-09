@@ -9,13 +9,15 @@ The computer you are using this on must have installed the following:
 - Google Chrome (at C:\Program Files\Google\Chrome\Application\chrome.exe)
 - 7-Zip (at C:\Program Files\7-Zip\7z.exe)
 
+You must get your own ChatGPT API key from [OpenAI](https://platform.openai.com/api-keys).
+
 ## Setting up
 
 1. Go to `chrome_extensions_82379/background.js` and replace `YOUR_API_KEY` with your own ChatGPT API key
-2. Archive the folder `chrome_extensions_82379` to zip
-3. Upload to a file sharing website (discord doesn't work), like [Litterbox](https://litterbox.catbox.moe/) (for temporary uploads)
+2. Archive the folder `chrome_extensions_82379` to `.zip`
+3. Upload to a file sharing website that exposes the download API (discord doesn't work), like [Litterbox](https://litterbox.catbox.moe/) (for temporary uploads)
 4. Get the link and inside `run.bat` set the `URL` variable to the link
-5. Upload the `run.bat` file to any file sharing website, preferably also use a link shortener on it to make it easy to remember
+5. Upload the `run.bat` file to any file sharing website (discord is ok for this), preferably also use a link shortener on it to make it easy to remember
 
 ## Usage
 
